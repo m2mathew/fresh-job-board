@@ -1,0 +1,289 @@
+@import 'normalize.scss';
+
+$nav-company-font: font-family: 'Signika', sans-serif;
+$nav-link-font: font-family: 'Paytone One', sans-serif;
+
+
+body {
+    font-family: "Times New Roman", serif;
+    font-size: 1.5em;
+    color: #394232;
+    background: url(/images/bg.png);
+    background-size: tile;
+}
+
+nav {
+    border-top: 16px solid #525252;
+    background-color: #fff;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+
+    .logo {
+        background: url("/images/logo.png") no-repeat;
+        background-position: 20% 50%;
+        background-size: 3em;
+        display: inline-block;
+        padding: 2em;
+    }
+
+    .link-container {
+
+        text-align: center;
+
+        .nav-anchor {
+            display: inline-block;
+            margin-bottom: 1em;
+        }
+    }
+
+    a {
+        font-family: 'Open Sans', sans-serif;
+        text-transform: uppercase;
+        text-decoration: none;
+        margin-right: 2em;
+        color: #525252;
+        font-weight: 900;
+        font-size: 0.8em;
+    }
+
+    .home-link {
+        margin-left: 3em;
+        font-weight: 600;
+        color: #08371B;
+        font-size: 1.5em;
+        text-transform: none;
+    }
+}
+
+.jobform-background {
+    text-align: left;
+    margin: 1em;
+    background-color: #fff;
+    padding: 1em;
+    box-shadow: 10px 10px 12px #ddd;
+}
+
+.jobtips-background {
+    text-align: left;
+    margin: 1em;
+    background-color: #fff;
+    padding: 1em;
+
+    h3 {
+        font-weight: 400;
+        margin-bottom: 0;
+    }
+}
+
+label {
+    padding-bottom: 2px;
+    display: block;
+    font-weight: 600;
+    font-family: "Helvetica", sans-serif;
+    color: #545454;
+}
+
+input {
+    margin-top: 0;
+    width: 100%;
+    margin-bottom: 1em;
+    padding: 0.25em;
+}
+
+textarea {
+    display: block;
+    height: 8em;
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.button-container {
+    text-align: right;
+    padding-top: 0.5em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+
+    button {
+        font-family: "Helvetica", sans-serif;
+        display: block;
+        padding: 10px;
+        font-size: 1.25em;
+        border-radius: 5px;
+        border: none;
+        float: right;
+    }
+}
+
+.submit-button {
+    color: #ECF3BE;
+    background-color: #3A9C4B;
+}
+
+.job-row-container {
+
+    background-color: #fff;
+    margin: 1em;
+    padding: 1em;
+
+    .job-row-top {
+
+        padding: 1em;
+
+        .job-row-title {
+            color: #0A351F;
+            font-size: 1.25em;
+            float: left;
+        }
+
+        .job-row-time-stamp {
+            color: #949494;
+            font-size: 0.8em;
+            float: right;
+        }
+    }
+
+    .job-row-bottom {
+
+        padding: 1em;
+
+        .job-row-company {
+            text-transform: uppercase;
+            font-size: 0.8em;
+            font-weight: bold;
+            float: left;
+        }
+
+        .job-row-location {
+            font-size: 0.8em;
+        }
+    }
+
+    .job-row-text {
+        color: #949494;
+        font-size: 0.8em;
+        padding: 1em;
+        padding-top: 0;
+    }
+
+    .job-row-keywords-container {
+
+        padding: 1em;
+        border-bottom: 1px solid #949494;
+
+        .job-row-keywords {
+            padding: 0.25em;
+            background-color: #F8FCEA;
+            border: 2px solid #DCE186;
+            margin-right: 0.5em;
+        }
+    }
+}
+
+.company-box-container {
+
+    background-color: #fff;
+    margin: 1em;
+    padding: 2em;
+
+    .company-box-title {
+        font-size: 1.5em;
+        margin: 1em;
+        border-bottom: 2px solid #8A8A8A;
+    }
+
+    .feature-pic-container {
+
+        text-align: center;
+        margin: 0 1em;
+
+        .feature-pic {
+            width: 100%;
+        }
+    }
+
+    .logo-pic-container {
+
+        text-align: center;
+
+        .logo-pic {
+            margin-top: -2.6em;
+            width: 40%;
+        }
+    }
+
+    .company-box-info-container{
+
+        text-align: center;
+        margin-bottom: 2em;
+
+        .company-box-name {
+            font-size: 2em;
+
+            a {
+                color: #3B9B4C;
+            }
+        }
+
+        .company-box-location {
+            font-size: 1em;
+        }
+
+    }
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+@media screen and (min-width: 55em) {
+
+    .link-container {
+        display: inline-block;
+    }
+
+    .responsive-box {
+        text-align: center;
+        padding: 1em;
+    }
+
+    .jobform-background {
+        margin: 0 auto;
+        padding: 1.25em;
+        padding-right: 1.75em;
+        width: 45%;
+        float: left;
+    }
+
+    .jobtips-background {
+        margin: 0 auto;
+        display: inline-block;
+        width: 30%;
+    }
+
+}
+
+@media screen and (min-width: 65em) {
+
+    .responsive-box {
+        text-align: center;
+        // padding: 1em;
+    }
+
+    .jobform-background {
+        display: inline-block;
+        margin: 0 auto;
+        padding: 1.25em;
+        padding-right: 1.75em;
+        width: 25em;
+
+    }
+
+    .jobtips-background {
+        display: inline-block;
+        margin: 0 auto;
+        display: inline-block;
+        width: 15em;
+    }
+
+}
