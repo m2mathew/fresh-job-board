@@ -445,6 +445,7 @@ button {
 .job-row-container {
   background-color: #fff;
   margin: 1em;
+  margin-top: 0;
   padding: 1em; }
   .job-row-container .job-row-top {
     padding: 1em; }
@@ -523,16 +524,15 @@ a {
     font-family: "Helvetica", sans-serif;
     color: #545454; }
   .filter-box .filter-left {
-    width: 40%;
-    padding: 0.5em; }
+    width: 45%;
+    float: left; }
     .filter-box .filter-left .filter-search-input-keywords {
       margin-top: 0;
       margin-bottom: 1em;
-      padding: 0.25em;
-      float: left; }
+      padding: 0.25em; }
   .filter-box .filter-right {
-    width: 40%;
-    padding: 0.5em; }
+    width: 45%;
+    float: left; }
     .filter-box .filter-right .filter-search-input-location {
       margin-top: 0;
       margin-bottom: 1em;

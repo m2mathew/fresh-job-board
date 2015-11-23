@@ -9,9 +9,9 @@ module.exports = React.createClass({
                 </div>
                 <div className="link-container">
                     <div className="nav-anchor"><a href="#list">Jobs</a></div>
-                    <div className="nav-anchor"><a href="#">Companies</a></div>
-                    <div className="nav-anchor"><a href="#">Cities</a></div>
-                    <div className="nav-anchor"><a href="#">Why Fresh?</a></div>
+                    <div className="nav-anchor"><a href="#companies">Companies</a></div>
+                    <div className="nav-anchor"><a href="#cities">Cities</a></div>
+                    <div className="nav-anchor"><a href="#benefits">Why Fresh?</a></div>
                     <div className="nav-anchor"><a href="#add">For Employers</a></div>
                 </div>
             </nav>

@@ -6,17 +6,18 @@ var JobDetailsModel = require('../models/JobModel.js');
 module.exports = React.createClass({
     render: function() {
         var keywordsArray = this.props.job.get('keywords');
+        console.log(typeof(keywordsArray));
         var newArray = [];
 
         for(var i = 0; i < keywordsArray.length; i++) {
             newArray.push(keywordsArray[i]);
         };
+        console.log(keywordsArray);
 
         var dateCreated = this.props.job.get('dateCreated');
 
         return (
             <div className="job-row-container">
-
                 <div className="job-row-top">
                     <span>
                         <a href="#" className="job-row-title">
@@ -47,9 +48,7 @@ module.exports = React.createClass({
                     <a href="#" className="job-row-keywords">{newArray[3]}</a>
                     <a href="#" className="job-row-keywords">{newArray[4]}</a>
                 </div>
-
             </div>
         );
-
     }
 });

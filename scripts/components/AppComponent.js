@@ -31,7 +31,7 @@ module.exports = React.createClass({
                 '': 'list',
                 'list': 'list',
                 'add': 'add',
-                'details/:id': 'details'
+                'details/:name/:id': 'details'
             },
             list: function() {
                 self.setState({

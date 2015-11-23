@@ -20,12 +20,9 @@ module.exports = React.createClass({
         });
 
         var companyInfo = this.props.companies.map(function(company) {
-            var firstCompany = this.props.company.find(function(comp) {
-                return (comp[0]);
-            });
 
             return (
-                <CompanyBoxComponent company={firstCompany} key={company.cid} />
+                <CompanyBoxComponent company={company} key={company.cid} />
             );
         });
 

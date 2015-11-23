@@ -35814,7 +35814,7 @@ module.exports = React.createClass({
                 '': 'list',
                 'list': 'list',
                 'add': 'add',
-                'details/:id': 'details'
+                'details/:name/:id': 'details'
             },
             list: function list() {
                 self.setState({
@@ -35927,7 +35927,7 @@ module.exports = React.createClass({
                 { className: "filter-left" },
                 React.createElement(
                     "label",
-                    { className: "filter-search-label", "for": "keyword-input" },
+                    { className: "filter-search-label", htmlFor: "keyword-input" },
                     "Keywords"
                 ),
                 React.createElement("input", { className: "filter-search-input-keywords", type: "text", name: "keyword-input" })
@@ -35937,7 +35937,7 @@ module.exports = React.createClass({
                 { className: "filter-right" },
                 React.createElement(
                     "label",
-                    { className: "filter-search-label", "for": "keyword-input" },
+                    { className: "filter-search-label", htmlFor: "keyword-input" },
                     "Location"
                 ),
                 React.createElement("input", { className: "filter-search-input-location", type: "text", name: "keyword-input" })
@@ -36027,19 +36027,34 @@ module.exports = React.createClass({
 
 var React = require('react');
 
+var JobModel = require('../models/JobModel.js');
+
 module.exports = React.createClass({
     displayName: 'exports',
 
     render: function render() {
         return React.createElement(
             'div',
-            null,
-            'This is showing up!!'
+            { className: 'job-details-container' },
+            React.createElement(
+                'div',
+                { className: 'job-details-title' },
+                this.props.job.get('title')
+            ),
+            React.createElement(
+                'div',
+                null,
+                React.createElement(
+                    'div',
+                    { className: 'job-row-location' },
+                    this.props.job.get('jobLocation')
+                )
+            )
         );
     }
 });
 
-},{"react":160}],169:[function(require,module,exports){
+},{"../models/JobModel.js":178,"react":160}],169:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -36071,7 +36086,7 @@ module.exports = React.createClass({
     render: function render() {
         return React.createElement(
             "form",
-            { className: "jobform-background" },
+            { className: "jobform-background", onSubmit: this.onFormSubmitted },
             React.createElement(
                 "h2",
                 null,
@@ -36082,25 +36097,25 @@ module.exports = React.createClass({
                 { htmlFor: "title" },
                 "Title"
             ),
-            React.createElement("input", { type: "text", id: "title" }),
+            React.createElement("input", { type: "text", id: "title", ref: "title" }),
             React.createElement(
                 "label",
                 { htmlFor: "company-name" },
                 "Company Name"
             ),
-            React.createElement("input", { type: "text", id: "company-name" }),
+            React.createElement("input", { type: "text", id: "company-name", ref: "company" }),
             React.createElement(
                 "label",
                 { htmlFor: "location" },
                 "Location"
             ),
-            React.createElement("input", { type: "text", id: "location" }),
+            React.createElement("input", { type: "text", id: "location", ref: "location" }),
             React.createElement(
                 "label",
                 { htmlFor: "description" },
                 "Description"
             ),
-            React.createElement("textarea", { name: "textarea", id: "description" }),
+            React.createElement("textarea", { name: "textarea", id: "description", ref: "description" }),
             React.createElement(
                 "label",
                 { htmlFor: "title" },
@@ -36117,6 +36132,16 @@ module.exports = React.createClass({
                 )
             )
         );
+    },
+    onFormSubmitted: function onFormSubmitted(e) {
+        e.preventDefault();
+        var newJob = this.props.job.add({
+            title: this.refs.title.getDOMNode().value,
+            description: this.refs.description.getDOMNode().value,
+            location: this.refs.location.getDOMNode().value,
+            company: this.refs.company.getDOMNode().value
+        });
+        this.props.router.navigate('details/' + newJob.cid, { trigger: true });
     }
 });
 
@@ -36145,11 +36170,8 @@ module.exports = React.createClass({
         });
 
         var companyInfo = this.props.companies.map(function (company) {
-            var firstCompany = this.props.company.find(function (comp) {
-                return comp[0];
-            });
 
-            return React.createElement(CompanyBoxComponent, { company: firstCompany, key: company.cid });
+            return React.createElement(CompanyBoxComponent, { company: company, key: company.cid });
         });
 
         return React.createElement(
@@ -36184,11 +36206,13 @@ module.exports = React.createClass({
 
     render: function render() {
         var keywordsArray = this.props.job.get('keywords');
+        console.log(typeof keywordsArray);
         var newArray = [];
 
         for (var i = 0; i < keywordsArray.length; i++) {
             newArray.push(keywordsArray[i]);
         };
+        console.log(keywordsArray);
 
         var dateCreated = this.props.job.get('dateCreated');
 
@@ -36382,7 +36406,7 @@ module.exports = React.createClass({
                     { className: "nav-anchor" },
                     React.createElement(
                         "a",
-                        { href: "#" },
+                        { href: "#companies" },
                         "Companies"
                     )
                 ),
@@ -36391,7 +36415,7 @@ module.exports = React.createClass({
                     { className: "nav-anchor" },
                     React.createElement(
                         "a",
-                        { href: "#" },
+                        { href: "#cities" },
                         "Cities"
                     )
                 ),
@@ -36400,7 +36424,7 @@ module.exports = React.createClass({
                     { className: "nav-anchor" },
                     React.createElement(
                         "a",
-                        { href: "#" },
+                        { href: "#benefits" },
                         "Why Fresh?"
                     )
                 ),
