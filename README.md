@@ -2,7 +2,7 @@
 
 Assignment from The Iron Yard-Austin
 
-Week 6 - day 23
+Week 6 - day 24
 
 ## Description
 Create a job board using Backbone and React
